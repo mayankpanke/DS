@@ -3,7 +3,7 @@ package tree;
 public class BinarySearchTree {
     private Node root;
 
-    private void add(int value){
+    public void add(int value){
         Node node = new Node(value);
         if(root == null) {
             root = node;
@@ -15,6 +15,10 @@ public class BinarySearchTree {
                 parent.right = node;
             }
         }
+    }
+
+    public Node getRoot() {
+        return root;
     }
 
     private Node findParent(Node startNode, int value) {
@@ -36,6 +40,17 @@ public class BinarySearchTree {
         private Node right;
         Node(int value) {
             this.data = value;
+        }
+
+        int getData() {
+            return data;
+        }
+
+        Node getLeft() {
+            return left;
+        }
+        Node getRight() {
+            return right;
         }
     }
 
