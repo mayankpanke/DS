@@ -2,7 +2,7 @@ package tree;
 
 import java.util.Iterator;
 
-public class TreeTraversal {
+public class BTreeTraversal {
     static class Node {
         int data;
         Node left;
