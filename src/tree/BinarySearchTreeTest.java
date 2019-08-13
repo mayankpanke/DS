@@ -45,4 +45,13 @@ public class BinarySearchTreeTest {
         tree.add(9);
         Assert.assertThat(tree.getRoot().getLeft().getRight().getData(), Is.is(9));
     }
+
+    @Test
+    public void validateHigherToRootButLowerToSecondNodeAddedOnLeft() {
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.add(10);
+        tree.add(20);
+        tree.add(15);
+        Assert.assertThat(tree.getRoot().getRight().getLeft().getData(), Is.is(15));
+    }
 }
