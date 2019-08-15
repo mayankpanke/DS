@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.Optional;
+
 public class BinarySearchTree {
     private Node root;
 
@@ -17,12 +19,44 @@ public class BinarySearchTree {
         }
     }
 
+    public Optional<Node> search(int value) {
+        if(root == null) {
+            return Optional.empty();
+        }
+        if(root.data == value) {
+            return Optional.of(root);
+        }
+
+        Node node = search(root, value);
+        if(node == null) {
+            return Optional.empty();
+        }
+        return Optional.of(node);
+    }
+
+    private Node search(Node startNode, int value) {
+        if(startNode == null)
+            return null;
+
+        if(startNode.data == value)
+            return startNode;
+
+        Node nextLevel = null;
+        if(value <= startNode.data ) {
+            nextLevel = startNode.left;
+        } else {
+            nextLevel = startNode.right;
+        }
+
+        return search(nextLevel, value);
+    }
+
     public Node getRoot() {
         return root;
     }
 
     private Node findParent(Node startNode, int value) {
-        if(value < startNode.data ) {
+        if(value <= startNode.data ) {
             if(startNode.left == null)
                 return startNode;
             else
