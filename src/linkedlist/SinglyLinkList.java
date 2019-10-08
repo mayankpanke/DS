@@ -1,4 +1,4 @@
-package sll;
+package linkedlist;
 
 import java.util.Iterator;
 

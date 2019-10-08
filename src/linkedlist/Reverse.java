@@ -1,4 +1,4 @@
-package sll;
+package linkedlist;
 
 public class Reverse {
 
